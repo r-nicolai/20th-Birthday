@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>Happy 20th Birthday</title>
+        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+        <style>
+            :root{--bg:#eef3fb;--ink:#0c2250;--mute:#4a5f8a;--blue:#1e5cff;--paper:#fff;--line:#c9d6ee}
+            @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#060f26;--ink:#eaf1ff;--mute:#8fa4d0;--blue:#5b8cff;--paper:#0d1c42;--line:#1e3269}}
+            :root[data-theme="dark"]{--bg:#060f26;--ink:#eaf1ff;--mute:#8fa4d0;--blue:#5b8cff;--paper:#0d1c42;--line:#1e3269}
+            *{box-sizing:border-box}
+            html{scroll-padding-top:env(safe-area-inset-top,0px)}
+            body{margin:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.7;transition:opacity .5s}
+            body.out{opacity:0}
+            section{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 24px;text-align:center}
+            .serif,h1,h2,.quote{font-family:"Fraunces",Georgia,serif}
+            .ball{width:56px;height:56px;border-radius:50%;border:3px solid var(--ink);background:linear-gradient(var(--blue) 0 46%,var(--ink) 46% 54%,var(--paper) 54%);position:relative;margin-bottom:28px}
+            .ball::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:16px;margin:-8px;border-radius:50%;background:var(--paper);border:3px solid var(--ink)}
+            .eyebrow{letter-spacing:.3em;text-transform:uppercase;font-size:.78rem;color:var(--mute);margin:0}
+            .btn{display:inline-block;text-decoration:none;font:inherit;font-weight:500;background:var(--blue);color:#fff;border:0;border-radius:99px;padding:14px 34px;cursor:pointer;letter-spacing:.05em}
+            .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s}
+            .reveal.in{opacity:1;transform:none}
+            @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+            .big{font-family:"Fraunces",Georgia,serif;font-size:clamp(9rem,42vw,20rem);line-height:.9;margin:8px 0;font-weight:500;color:transparent;-webkit-text-stroke:2px var(--blue);background:linear-gradient(var(--blue),var(--blue)) no-repeat 0 100%/100% 0;transition:background-size 1.4s ease;-webkit-background-clip:text;background-clip:text}
+            .big.fill{background-size:100% 100%}
+            h1{font-style:italic;font-weight:400;font-size:clamp(1.6rem,5vw,2.4rem);margin:8px 0 28px}
+        </style>
+    </head>
+    <body>
+        <section>
+        <div class="ball" role="img" aria-label="Poké Ball style icon"></div>
+        <p class="eyebrow">Level up</p>
+        <div class="big" id="num">20</div>
+        <h1>Happy Birthday, Baobao!!!</h1>
+        <a class="btn" id="open" href="message.html">Open your card</a>
+        </section>
+    <script>
+        setTimeout(function(){document.getElementById("num").classList.add("fill")},400);
+        document.getElementById("open").addEventListener("click",function(e){
+            e.preventDefault();var url=this.href;
+            document.body.classList.add("out");
+            setTimeout(function(){location.href=url},450);
+            });
+    </script>
+    </body>
+</html>
