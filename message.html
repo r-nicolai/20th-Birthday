@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>Hello, Shmexy ;]</title>
+        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+        <style>
+        :root{--bg:#eef3fb;--ink:#0c2250;--mute:#4a5f8a;--blue:#1e5cff;--paper:#fff;--line:#c9d6ee}
+        @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#060f26;--ink:#eaf1ff;--mute:#8fa4d0;--blue:#5b8cff;--paper:#0d1c42;--line:#1e3269}}
+        :root[data-theme="dark"]{--bg:#060f26;--ink:#eaf1ff;--mute:#8fa4d0;--blue:#5b8cff;--paper:#0d1c42;--line:#1e3269}
+        *{box-sizing:border-box}
+        html{scroll-padding-top:env(safe-area-inset-top,0px)}
+        body{margin:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.7;transition:opacity .5s}
+        body.out{opacity:0}
+        section{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 24px;text-align:center}
+        .serif,h1,h2,.quote{font-family:"Fraunces",Georgia,serif}
+        .ball{width:56px;height:56px;border-radius:50%;border:3px solid var(--ink);background:linear-gradient(var(--blue) 0 46%,var(--ink) 46% 54%,var(--paper) 54%);position:relative;margin-bottom:28px}
+        .ball::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:16px;margin:-8px;border-radius:50%;background:var(--paper);border:3px solid var(--ink)}
+        .eyebrow{letter-spacing:.3em;text-transform:uppercase;font-size:.78rem;color:var(--mute);margin:0}
+        .btn{display:inline-block;text-decoration:none;font:inherit;font-weight:500;background:var(--blue);color:#fff;border:0;border-radius:99px;padding:14px 34px;cursor:pointer;letter-spacing:.05em}
+        .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s}
+        .reveal.in{opacity:1;transform:none}
+        @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+        .letter{max-width:620px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:clamp(28px,6vw,64px);box-shadow:0 20px 50px rgba(12,34,80,.12);text-align:left}
+        .letter h2{font-weight:500;font-size:2rem;margin:0 0 20px}
+        .letter p{margin:0 0 18px;font-size:1.05rem}
+        .sign{font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:1.4rem;margin-top:28px;color:var(--blue)}
+        .quote{font-style:italic;font-size:clamp(1.5rem,4.5vw,2.6rem);max-width:700px;line-height:1.4;margin:0}
+        .rule{width:60px;height:2px;background:var(--blue);margin:28px auto}
+        .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px;max-width:640px;width:100%;margin-top:36px}
+        .stats div{border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:18px 10px}
+        .stats b{display:block;font-family:"Fraunces",Georgia,serif;font-size:1.8rem;color:var(--blue)}
+        .stats span{font-size:.8rem;color:var(--mute)}
+        .back{margin-top:36px;color:var(--mute);font-size:.9rem}
+        </style>
+    </head>
+    <body>
+        <section>
+        <div class="letter reveal">
+            <h2>Dear Baobao,</h2>
+            <p>Happiest birthday, my baobao! Today you turn 20, and I'm the happiest person in the world.</p>
+            <p>I'm very grateful that the stars have aligned for us and allowed us to meet, I'm lucky to have you in my life. Pero s'yempre, not just me, but all of us-including the kids, your mama, your friends, and everyone else who loves you and is loved by you.</p>
+            <p>Mahal, thank you so much for continuing to be the amazing person you are. Thank you so much for giving me the gift of your existence, of our relationship, and of our smol pawmily.</p>
+            <p>You're the best asawa and daddy to our kids, but you're not just that, you're also the best son, the best apo, the best friend, classmate, workmate, and cybersecurity godz. As we say, mahal ko, you are DA GOAT!</p>
+            <p>I hope this day reminds you of how incredible you are and how far you've achieved in life. You work so, so hard, mahal ko, so I know that you'll make it far better than you imagine. So please keep going, keep dreaming, and I hope you keep the burning passion in you alive.</p>
+            <p>Happy birthday, mahal ko. I love you so, so, so much. Happiest birthday, love!</p>
+        <div class="sign">With love, Bei Bei</div>
+        </div>
+        </section>
+        <section>
+        <div class="ball"></div>
+        <p class="quote reveal">Happy Birthday. Go catch your dreams.</p>
+        <a class="back" id="back" href="index.html">← Back to the cover</a>
+        </section>
+        <script>
+        var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add("in")})},{threshold:.25});
+        document.querySelectorAll(".reveal").forEach(function(el){io.observe(el)});
+        document.getElementById("back").addEventListener("click",function(e){
+        e.preventDefault();var url=this.href;
+        document.body.classList.add("out");
+        setTimeout(function(){location.href=url},450);
+        });
+        </script>
+    </body>
+</html>
